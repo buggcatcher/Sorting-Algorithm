@@ -1,0 +1,139 @@
+linked list code vault:
+https://www.youtube.com/watch?v=uBZHMkpsTfg
+
+analisi della complessita' degli algoritmi:
+https://it.wikibooks.org/wiki/Algoritmi/L%27analisi_di_complessit%C3%A0_degli_algoritmi
+
+google searches:
+static variable declaration inizilization c
+const variable declaration inizilization c
+
+
+
+vizualiser
+https://push-swap-visualizer.vercel.app/
+
+prima facevo cosi' ma ci mettevo il doppio delle mosse
+    // ft_push_until3(&stack_a, &stack_b);
+    // ft_sort3(&stack_a);
+    // ft_sort_until_empty(&stack_a, &stack_b);
+    // ft_rotate_to_min(&stack_a);
+
+
+ora ho fatto un pre merge sort iniziale per ricavare l'indice della posizione corretta dei nodi
+e ho creato index in t_list index con cui andro' a confrontare i nodi per poi eseguire l'algorimo
+
+i chunks servono ad avere numeri grandi agli estremi 
+divido gli stack in 3 chunks
+so la dimensione iniziale e finale di ogni chunck
+grazie all'indice so quali nodi corrispondono agli estremi dei chunk
+pusho i primi due chunk in b. ecco come:
+    1. il primo nodo di a e' contenuto nei primi due chunk?
+       se si' lo pusho in b, altrimenti ruoto lo stack a
+    2. il primo nodo di b fa parte del primo chunk?
+       se si' pusho e ruoto b, altrimenti pusho e basta
+    3. una volta rimasti solamente i nodi del terzo chunk in a
+       divido uteriormente il chunk
+    4. ripeti 1. e 2. con i chunk piu' piccoli
+       se il primo nodo in a fa parte del primo chunk sotto se e' secondo sotto
+nel caso in cui avessi 100 nodi i tre chunks per gli stack saranno: 1-33, 34-66, 67-100.
+una volta pushati i primi due chunks il terzo chunk verra' diviso uteriormente in:
+67-78, 79-89, 89-100.
+continua il processo finche' non arrivi a tre elementi nello stack_a e applica ft_sort_3 
+
+calcola il costo delle mosse di t_moves per lo spostamento di ogni nodo di b
+trova il nodo con il costo minore in b
+porta il nodo con il costo minore in cima a b
+    1. target ottimale {se ho 10 nodi e voglio trovare il target ottimale
+       dell'ottavo il valore sara; +2 o +8 (valore statico)}
+    2. rotazuione a
+    3. rotazione b
+    a ogni push di b in a siaggiornano i costi di 2. e 3.
+    potresti usare il valore negativo per la direzione e il suo assoluto per il costo
+
+inserisci sequenza mosse per elidere alcune mosse 
+
+
+
+RIVEDI TUTTA LA LOGICA DI CHUNKS
+fatto!
+
+
+===========
+=  TO DO  =
+===========
+
+d_tail: per capire se devo avvicinarlo con ra o con rra
+
+
+itera per ogni elemento dello stack a confrontandolo con la testa in b
+se e' minore del nodo precedente e maggiore del nodo seguente imposta
+il target 
+
+
+Caso 1: ra > rb
+    Calcolo il numero di rotazioni doppie (rr).
+    Se ra > rb, rr diventa rb, e riduco ra di rb, azzerando rb.
+    Altrimenti, rr diventa ra, e riduco rb di ra, azzerando ra.
+    Imposto rra e rrb a zero.
+
+Caso 2: ra + rrb
+    Azzero rb, rra, rr, e rrr.
+    Il costo è la somma di ra e rrb.
+
+Caso 3: rra + rb
+    Azzero ra, rrb, rr, e rrr.
+    Il costo è la somma di rra e rb.
+
+Caso 4: rra > rrb
+    Calcolo il numero di rotazioni doppie inverse (rrr).
+    Se rra > rrb, rrr diventa rrb, e riduco rra di rrb, azzerando rrb.
+    Altrimenti, rrr diventa rra, e riduco rrb di rra, azzerando rra.
+    Imposto ra e rb a zero.
+
+sostituisci head con un puntatore che punta alla cimadella lista
+considera di utilizzare size al di fuori della struttura
+
+per il find target comparo se il nodo b e' maggiore del nodo a
+                         e se il nodo b e' maggiore della testa dello stack_a
+                    se e' vero ritorno la testa
+                    altrimenti ritorna errore
+altrimenti se il nodo b e' maggiore del nodo a 
+         e se il nodo b e' maggiore del nodo successivo di a
+    se e' vero ritorno il nodo successivo di a
+    altrimenti imposto il nodo a al nodo successivo
+
+se dovessi rifare questo progetto userei le liste circolari
+            
+
+shift + tab toglie i tab dalla colonna selezionata
+
+
+in ft_order_check: 0 disordinato, 1 ordinato
+nel caso in cui l'input sia una stringa vuota stampo:
+"Usage: ./push_swap <numbers>\n" oppure "Error: No stack found\n"
+forse dovrei controllarli assieme e stampare un solo messaggio di errore
+controllando se il primo char e' \0 con: (argc == 2 && !argv[1][0])
+
+
+momento
+momento
+momento
+make file da aggiustare!
+make file da aggiustare!
+make file da aggiustare!
+bonus elimina .o
+
+norminette:
+
+pushswap.h: Error!
+(line:  98, col:  52):      Function has more than 4 arguments
+(line: 133, col:  65):      Function has more than 4 arguments
+
+initialization.c: Error!
+(line:  16, col:  49):      initialize_stack has more than 4 arguments
+
+sort_few.c: Error!
+(line:  48, col:  97):      process_stack has more than 4 arguments
+
+
