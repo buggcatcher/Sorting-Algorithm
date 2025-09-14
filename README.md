@@ -1,6 +1,6 @@
 # Sorting-Algorithm
 
-The **Push Swap** project consists of creating a program that sorts a stack of integers using a limited set of operations and two stacks (`a` and `b`), while minimizing the number of operations performed.
+The **Push Swap** project consists of creating a program that sorts a stack of integers using a limited set of operations and two stacks `a` and `b`, while minimizing the number of operations performed.
 
 
 ![viualizer](https://github.com/buggcatcher/Sorting-Algorithm/blob/main/visualizer.gif)
