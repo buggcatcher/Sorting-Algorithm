@@ -1,5 +1,7 @@
 # Sorting-Algorithm
-In this project, I'll be sorting data on a stack using a limited set of instructions. My goal is to use the fewest number of actions possible. To succeed, I'll need to manipulate various types of algorithms and carefully choose the most appropriate solution from many options to achieve optimized data sorting.
+
+The **Push Swap** project consists of creating a program that sorts a stack of integers using a limited set of operations and two stacks (`a` and `b`), while minimizing the number of operations performed.
+
 
 ![viualizer](https://github.com/buggcatcher/Sorting-Algorithm/blob/main/visualizer.gif)
 
@@ -11,12 +13,7 @@ In this project, I'll be sorting data on a stack using a limited set of instruct
     echo "Checker: $(./push_swap "$@" | ./checker_linux "$@")"
 
 
-## 🎯 Project Goal
-The **Push Swap** project consists of creating a program that sorts a stack of integers using a limited set of operations and two stacks (`a` and `b`), while minimizing the number of operations performed.
-
----
-
-## 📋 Core Requirements
+## Requirements
 
 ### Initial State
 - **Stack a** contains a random number of unique integers (positive and/or negative)  
@@ -46,7 +43,7 @@ The **Push Swap** project consists of creating a program that sorts a stack of i
 
 ---
 
-## 🎯 Performance Goals
+## Performance
 
 To achieve **full validation**:
 - Sort **100 random numbers** in less than **700 operations**  
